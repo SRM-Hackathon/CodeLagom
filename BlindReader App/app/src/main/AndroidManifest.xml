@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".BlindReader" />
-        <activity android:name=".AudioToText"></activity>
+        <activity android:name=".AudioToText" />
+        <activity android:name=".SplashScreen"></activity>
     </application>
 
 </manifest>
