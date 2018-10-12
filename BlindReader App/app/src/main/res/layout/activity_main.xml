@@ -1,18 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/mainbg">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/imageToText"
+        android:layout_width="match_parent"
+        android:layout_height="162dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/button2"
+        android:background="#9500695c"
+        android:onClick="imageToText"
+        android:text="Image To Text"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/speechToText"
+        android:layout_width="match_parent"
+        android:layout_height="156dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageToText"
+        android:background="#80ef6c00"
+        android:onClick="speechToText"
+        android:text="Speech To Text"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:theme="@style/PrimaryColoredButton" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="159dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#650083ff"
+        android:text="Speak"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:theme="@style/PrimaryColoredButton" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="182dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/speechToText"
+        android:background="#60b71c1c"
+        android:text="Exit"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
+    <!--android:background="#181616"-->
