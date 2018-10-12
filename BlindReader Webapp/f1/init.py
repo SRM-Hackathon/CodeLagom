@@ -14,3 +14,5 @@ login_manager.login_view='login'
 login_manager.login_message_category='info'
 
 from f1 import routes
+
+
