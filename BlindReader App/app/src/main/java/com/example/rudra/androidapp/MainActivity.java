@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-    Button imageToText,speechToText,button2,button4;
+    Button imageToText,speechToText,getSpeech,getOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         imageToText=findViewById(R.id.imageToText);
         speechToText=findViewById(R.id.speechToText);
-        button2=findViewById(R.id.button2);
-        button4=findViewById(R.id.button4);
+        getSpeech=findViewById(R.id.button2);
+        getOut=findViewById(R.id.button4);
         imageToText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,13 +37,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        button2.setOnClickListener(new View.OnClickListener() {
+        getSpeech.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getSpeechInput();
             }
         });
-        button4.setOnClickListener(new View.OnClickListener() {
+        getOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
