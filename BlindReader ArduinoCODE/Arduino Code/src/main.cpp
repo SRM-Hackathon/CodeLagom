@@ -1,8 +1,9 @@
 #include <Arduino.h>
 #include <Servo.h>
+#include <string.h>
 
 Servo s0,s1,s2,s3,s4,s5;
-int led0=12, led1=9, led=13, led3=8, led4=11, led5=10;
+int led0=12, led1=9, led2=13, led3=8, led4=11, led5=10;
 String data="";
 // Sending Code from Arduino to Android
 byte val=0;
@@ -105,5 +106,5 @@ void loop() {
 
     }
     }
-
+delay(500); //1 second delay after each letter
 }
