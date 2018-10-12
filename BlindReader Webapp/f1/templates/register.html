@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <div class="content-section">
+         <form method="POST" action="">
+              {{form.hidden_tag()}}
+              <fieldset class="form-group">
+                  <legend class="border-bottom mb-4" style="font-family:comic sans ms;fontSize:30">Join BlindReader</legend>
+                  <div class="form-group">
+                      {{ form.username.label(class="form-control-label")}}
+
+                          {% if form.username.errors  %}
+                            {{ form.username(class="form-control form-control-lg is-invalid")}}
+                              <div class="invalid-feedback">
+                                  {% for error in form.username.errors %}
+                                    <span>{{error}}</span>
+                                  {% endfor %}
+                              </div>
+                           {% else  %}
+                              {{ form.username(class="form-control form-control-lg")}}
+                          {% endif %}
+
+                  </div>
