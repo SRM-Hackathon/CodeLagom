@@ -11,11 +11,11 @@ void setup() {
     // put your setup code here, to run once:
     Serial.begin(9600);
     s0.attach(7);
-    s0.attach(6);
-    s0.attach(5);
-    s0.attach(4);
-    s0.attach(3);
-    s0.attach(2);
+    s1.attach(6);
+    s2.attach(5);
+    s3.attach(4);
+    s4.attach(3);
+    s5.attach(2);
     pinMode(led0, OUTPUT);
     pinMode(led1, OUTPUT);
     pinMode(led2, OUTPUT);
@@ -27,15 +27,14 @@ void setup() {
 void loop() {
     // put your main code here, to run repeatedly:
     if(Serial.available()){
-        val = analogRead(A0) 
+        val = analogRead(A0);
         if(val > 5){
         Serial.println("k");
         delay(500);
-    }
-        else{
+    }else{
             char ch = Serial.read();
             if(ch == ',') {
-                data+="";
+                data = "";
             }
             else{
                 data+=ch;
@@ -106,5 +105,6 @@ void loop() {
 
     }
     }
+}
 delay(500); //1 second delay after each letter
 }
