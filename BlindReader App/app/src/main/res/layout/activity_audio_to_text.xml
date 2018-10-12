@@ -53,17 +53,5 @@
         android:theme="@style/PrimaryColoredButton" />
 
 
-    <Button
-        android:id="@+id/back_btn"
-        android:layout_width="match_parent"
-        android:layout_height="127dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="1dp"
-        android:background="#6078909c"
-        android:text="Exit"
-        android:textColor="#FFFFFF"
-        android:textSize="24dp"
-        android:textStyle="bold" />
-
+    
 </RelativeLayout>
