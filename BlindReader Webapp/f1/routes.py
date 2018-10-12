@@ -11,6 +11,9 @@ from os import chdir, getcwd, listdir, path
 import serial
 import time
 
+
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+
 @app.route("/")
 @app.route("/home")
 def home():
@@ -52,4 +55,55 @@ def login():
         else:
             flash('login unsuccessful.please check again', 'danger')
     return render_template('login.html', title='Login', form=form)
+
+@app.route("/upload", methods=['GET','POST'])
+@login_required
+def upload():
+    if request.method == 'POST':
+            target = os.path.join(APP_ROOT, current_user.username)
+            print(target)
+            if not os.path.isdir(target):
+                os.mkdir(target)
+            else:
+               print("Couldn't create upload directory: {}".format(target))
+            print(request.files.getlist("file"))
+            for upload in request.files.getlist("file"):
+                print(upload)
+                print("{} is the file name".format(upload.filename))
+                filename = upload.filename
+                destination = "/".join([target, filename])
+                print("Accept incoming file:", filename)
+                print("Save it to:", destination)
+                upload.save(destination)
+    return render_template('upload.html')
+
+@app.route("/pdftotext1")
+def pdftotext1():
+    return render_template('pdftotext.html')
+
+@app.route("/pdftotext", methods=["POST"])
+def pdftotext():
+    if request.method == 'POST':
+        folder = os.path.join(APP_ROOT, current_user.username)
+        list = []
+        directory = folder
+        for root, dirs, files in os.walk(directory):
+            for filename in files:
+                if filename.endswith('.pdf'):
+                    t = os.path.join(directory,filename)
+                    list.append(t)
+        for item in list:
+            path = item
+            head, tail = os.path.split(path)
+            var = "\\"
+            tail = tail.replace(".pdf", ".txt")
+            name = head + var + tail
+            content = ""
+            pdf = PyPDF2.PdfFileReader(path, "rb")
+            for i in range(0, pdf.getNumPages()):
+                content += pdf.getPage(i).extractText() + "\n"
+            with open(name, 'a') as out:
+                out.write(content)
+                out.close()
+    return redirect("allfiles")
 
