@@ -1,0 +1,23 @@
+{% extends 'layout.html'%}
+
+{%block content %}
+<legend class="border-bottom mb-4" style="text-align:center" xmlns="http://www.w3.org/1999/html">ALL UPLOADED FILES!</legend>
+    <form class="form-inline" method="POST" action="{{ url_for('test') }}">
+      <div class="form-group">
+        <div class="input-group">
+          <ul>
+              {% for pdf_name in pdf_names %}
+                <div>
+                    <li style="list-style:none !important;">
+                        <input type="radio" name="comp_select" class="form-radio" value="{{ pdf_name }}"></input>
+                        <button type="button"   class="btn btn-outline-info"  style="margin-top: 15px; padding: 12px;width :600px;     box-shadow: 1px 1px rgb(31, 165, 226);
+    " >{{ pdf_name }}</button>
+                    </li>
+                </div>
+              {% endfor %}
+          </ul>
+        </div>
+
+        
+        <button type="submit" class="btn btn-outline-info" >   Start Streaming!</button>
+
