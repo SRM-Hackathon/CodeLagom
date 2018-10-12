@@ -84,6 +84,26 @@ void loop() {
                     s5.write(160);
                 }
 
-    }}
+    // Code for Emotion Representation
+                if(data=="emohaa"){
+                    s0.write(160);
+                    delay(1000);
+                    s0.write(60);
+                }else if(data=="emosad"){
+                    s1.write(160);
+                    delay(1000);
+                    s1.write(60);
+                }else if(data=="emoang"){
+                    s2.write(160);
+                    delay(1000);
+                    s2.write(60);
+                }else if(data=="emofer"){
+                    s3.write(60);
+                    delay(1000);
+                    s3.write(160);
+                }else{}
+
+    }
+    }
 
 }
