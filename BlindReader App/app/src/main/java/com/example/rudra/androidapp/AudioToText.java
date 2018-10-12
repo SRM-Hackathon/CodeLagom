@@ -96,14 +96,17 @@ public class AudioToText extends AppCompatActivity {
             if (btSocket!=null)
             {
                 for(int j=0;j<i.length();j++){
-                    String bin=conv.conversion(i.charAt(j));
-                    btSocket.getOutputStream().write(bin.toString().getBytes());
-                    Log.d("Rudra",bin.toString().getBytes().toString());
-                }
 
-//                btSocket.getOutputStream().write(i.toString().getBytes());
-//                Log.d("Rudra",i.toString().getBytes().toString());
-            }
+                    Log.d("Arduinomethod", "Inside arduino method") ;
+                    String bin=conv.conversion(i.charAt(j));
+                    bin+=",";
+                    for(int k=0;k<bin.length();k++){
+                        char z=bin.charAt(k);
+                        btSocket.getOutputStream().write(Character.toString(z).getBytes());
+                    }
+
+                    Log.d("Rudra",bin.toString());
+                } }
 
         }
         catch (Exception e)
@@ -111,7 +114,6 @@ public class AudioToText extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),e.getMessage(), Toast.LENGTH_SHORT).show();
 
         }
-
     }
 
 
@@ -119,6 +121,9 @@ public class AudioToText extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_audio_to_text);
+        try{
+            bluetooth_connect_device();
+        }catch(Exception e){}
         tv = findViewById(R.id.textView);
         fuck = findViewById(R.id.button);
 
@@ -187,10 +192,7 @@ public class AudioToText extends AppCompatActivity {
                 getSpeechInput();
             }
         });
-        try {
-            bluetooth_connect_device();
-        } catch (Exception e) {
-        }
+
 
         final Button back_btn = findViewById(R.id.back_btn);
         back_btn.setOnClickListener(new OnClickListener() {
@@ -230,6 +232,8 @@ public class AudioToText extends AppCompatActivity {
                     ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     sendArduino(result.get(0));
                     tv.setText(result.get(0));
+                    final String str = tv.toString();
+                    sendArduino(str);
 
 
 
