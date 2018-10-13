@@ -17,23 +17,6 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
 
-@app.route('/upload/<filename>')
-def send_pdf(filename):
-    return send_from_directory(current_user.username , filename)
-
-
-@app.route('/allfiles')
-@login_required
-def allfiles():
-    target = os.path.join(APP_ROOT, current_user.username)
-    pdf_names = os.listdir(target)
-    pdf_final=[]
-    for pdf in pdf_names:
-        if pdf.endswith('txt'):
-            pdf_final.append(pdf)
-    return render_template("allfiles.html", pdf_names=pdf_final)
-
-
 
 @app.route("/")
 @app.route("/home")
@@ -248,6 +231,24 @@ def test():
 
         f.close()
         return (str(selected_pdf))       #to check whether it prints on website or not, delete after checking
+
+@app.route('/upload/<filename>')
+def send_pdf(filename):
+    return send_from_directory(current_user.username, filename)
+
+@app.route('/allfiles')
+@login_required
+def allfiles():
+    target = os.path.join(APP_ROOT, current_user.username)
+    pdf_names = os.listdir(target)
+    pdf_final = []
+    for pdf in pdf_names:
+        if pdf.endswith('txt'):
+            pdf_final.append(pdf)
+    return render_template("allfiles.html", pdf_names=pdf_final)
+
+
+
 
 
 
