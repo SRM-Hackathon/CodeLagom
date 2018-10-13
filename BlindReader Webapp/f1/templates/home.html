@@ -28,6 +28,7 @@
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{{ url_for('allfiles') }}">My Files</a>
               <a class="nav-item nav-link" href="{{ url_for('upload') }}">Upload</a>
+                <a class="nav-item nav-link" href="{{url_for('contact')}}">Contact Us</a>
 
             </div>
             <!-- Navbar Right Side -->
@@ -68,24 +69,26 @@
                <p>
                 <div class="slide-left">
                 <p style=" font-weight:bold">BE THE BEACON OF HOPE IN THEIR LIVES. LET US SUPPORT THEM IN EVERY STEP WE TAKE!</p>
+              <hr>
                 </div>
                </p>
-
+                <h2><a class="article-title" href="#">Objectives</a></h2>
+                <br>
                   <ul>
                     <div>
                         <li style="font-size:20px"> Make all books, texts, voices and "emotions" in those voices
                     accessible to blind as well as blind-deaf in real time braille. </li>
-                        <li>Navigate them round the clock</li>
+                        <li style="font-size:20px">Navigate them round the clock</li>
                     </div>
 
                   </ul>
-              <div style= "display: block; margin-left: 100px;margin-right: auto;width: 40%">
+              <div style= "display: block; margin-left: 160px;margin-right: auto;width: 40%">
                   <img src="{{url_for('static',filename='b2.jpg')}}"  alt="Smiley face" height="420" width="420">
               </div>
 
              </p>
               <hr>
-                <h2><a class="article-title" href="#">OUR TECHNOLOGY</a></h2>
+                <h2><a class="article-title" href="#">Technology</a></h2>
             <p>
                  <ul>
             <div>
@@ -96,48 +99,53 @@
                     Image to  dynamic braille via text conversion
                 </li>
             </div>
-            <hr>
-                 </ul>
-                   <ul>
-                       <div>
+                <div>
                            <li>
                                Audio to dynamic braille for deafblind assistance
                            </li>
                        </div>
-                   </ul>
+                 </ul>
+
+
               <hr>
-                    Also, any pdf can be encoded into our device friendly text to be streamed to
+                    Any pdf can be encoded into our device friendly text to be streamed to
                     the blind person in the form of braille. The device mimics the raised and
                     non-raised dots that the braille language uses. This makes all books accessible
                     to blind and blind-deaf.
-                    Also we are trying to implement a tap/knock interface for people who are
-                    both blind and deaf to aid them with the interface.</p>
-                <h2><a class="article-title" href="#">Supporting Statistics:</a></h2><p>
-                    -Of the 37 million people across the globe who are blind, over 15 million are from India.
+                   </p>
+                <h2><a class="article-title" href="#">Supporting Statistics</a></h2><p>
+                    Of the 37 million people across the globe who are blind, over 15 million are from India.
                     -AudioBooks are the primary way of access to books that haven't been translated in braille,
                     although they are fluent in reading braille, and gives the actual reading experience to blind.
                     -NARUC ( National Association for Regulatory Utility Commission ) estimated two decades
                     ago that over 70,000 to 100,000 are both deaf and blind.</p>
               <hr>
 
-                <h2><a class="article-title" href="#">Technicalities :</a></h2><p>
-                    Fields We Cover In This Project:
-                    -IOT ( Internet of Things )
-                    -Android
-                    -Arduino
-                    -Web Development
-                    -Machine Learning
-                    Languages Used:
-                    - Java for Android
-                    - C++ for IOT
-                    - HTML, CSS, XML for front-end
-                    - Python for back-end</p>
+                <h2><a class="article-title" href="#" style="margin-left:10px;">Technology Used </a></h2>
+                <br>
+                <ul><span  style="font-size:22px;text-decoration: underline;">Fields We Cover In This Project:</span>
+                    <br>
+                    <li>IOT ( Internet of Things )</li>
+                    <li>Android</li>
+                    <li>Arduino</li>
+                    <li>Web Development</li>
+                    <li>Machine Learning</li>
+                </ul>
+                <br>
+                <ul><span style="font-size:22px;text-decoration: underline;"> Languages Used: </span>
+                <li>Java for Android</li>
+                <li>C++ for IOT</li>
+                <li> HTML, CSS, XML for front-end </li>
+                <li>Python for back-end</li>
+                </ul>
               <hr>
-                    <h2><a class="article-title" href="#">Other Hardware Tools :</a></h2> <p>Arduino UNO, HC-05 Bluetooth Module, SG90 MicroServo
-                    API's used are open sourced and have a GNU/GPL ( General Public License ) and
-                    Apache 2.0 License which allow free software distribution and modification.</p>
+                <h2><a class="article-title" href="#">Hardware Tools :</a></h2> <p><li>Arduino UNO</li>
+                <li>HC-05 Bluetooth Module</li>
+                <li>HC-05 Bluetooth Module</li>
+                <li>SG90 MicroServo API's used are open sourced and have a GNU/GPL ( General Public License )</li>
+                <li>Apache 2.0 License which allow free software distribution and modification.</li>
               <hr>
-                    <h2><a class="article-title" href="https://drive.google.com/file/d/18UxLVEG8Vt8wELlmEqtPZiXg8DWCCpl4/view">References: Click for video</a></h2><p>
+                    <p>
                     <!--Reference(s) : <a  href=" "/>-->
             </p>
             </article>
@@ -277,5 +285,8 @@ p {
   margin-top: 140px;
   text-align: center;
 }
+      .ul_big {
+      fontSize:30px;
+      }
   </style>
 </html>
