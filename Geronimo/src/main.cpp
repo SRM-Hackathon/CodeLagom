@@ -89,30 +89,50 @@ void loop() {
             sl1.write(30);
             sl2.write(20);
             sl3.write(20);
+            digitalWrite(led0,HIGH);
+            digitalWrite(led1,HIGH);
+            digitalWrite(led2,HIGH);
             delay(1000);
             sl1.write(0);
             sl2.write(0);
             sl3.write(0);
+            digitalWrite(led0,LOW);
+            digitalWrite(led1,LOW);
+            digitalWrite(led2,LOW);
         }else if(data == "rrrrrr"){
             sr1.write(20);
             sr2.write(20);
             sr3.write(160);
+            digitalWrite(led3,HIGH);
+            digitalWrite(led4,HIGH);
+            digitalWrite(led5,HIGH);
             delay(1000);
             sr1.write(0);
             sr2.write(0);
             sr3.write(100);
+            digitalWrite(led3,LOW);
+            digitalWrite(led4,LOW);
+            digitalWrite(led5,LOW);
         }else if(data == "ffffff" || data == "ssssss" ){
             sl1.write(30);
             sr1.write(20);
+            digitalWrite(led0,HIGH);
+            digitalWrite(led3,HIGH);
             delay(1000);
             sl1.write(0);
             sr1.write(0);
+            digitalWrite(led0,LOW);
+            digitalWrite(led3,LOW);
         }else if(data == "bbbbbb"){
             sl3.write(20);
             sr3.write(160);
+            digitalWrite(led2,HIGH);
+            digitalWrite(led5,HIGH);
             delay(1000);
             sl3.write(0);
             sr3.write(100);
+            digitalWrite(led2,LOW);
+            digitalWrite(led5,LOW);
         }
     
     }
