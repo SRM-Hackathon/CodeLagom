@@ -73,8 +73,8 @@ void loop() {
                     digitalWrite(led4,HIGH);
                     s4.write(60);
                 }else{
-                digitalWrite(led4,LOW);
-                s4.write(160);
+                    digitalWrite(led4,LOW);
+                    s4.write(160);
                 }
                 if(data.charAt(5)=='1'){
                     digitalWrite(led5,HIGH);
