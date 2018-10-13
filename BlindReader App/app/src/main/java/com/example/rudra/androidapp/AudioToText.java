@@ -106,7 +106,8 @@ public class AudioToText extends AppCompatActivity {
                     }
 
                     Log.d("Rudra",bin.toString());
-                } }
+                }
+            }
 
         }
         catch (Exception e)
@@ -233,11 +234,7 @@ public class AudioToText extends AppCompatActivity {
                     sendArduino(result.get(0));
                     tv.setText(result.get(0));
                     final String str = tv.toString();
-                    sendArduino(str);
-
-
-
-
+                   // sendArduino(str);
                 }
                 break;
 
