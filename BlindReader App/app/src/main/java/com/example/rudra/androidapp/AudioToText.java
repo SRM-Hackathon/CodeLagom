@@ -163,14 +163,19 @@ public class AudioToText extends AppCompatActivity {
                                     tv.setText("Neutrality");
 
 
+
                                 } else if (emotionProbabilities.Anger > emotionProbabilities.Neutrality && emotionProbabilities.Anger > emotionProbabilities.Fear && emotionProbabilities.Anger > emotionProbabilities.Sadness && emotionProbabilities.Anger > emotionProbabilities.Happiness) {
                                     tv.setText("Anger");
+                                    sendArduino("emoang");
                                 } else if (emotionProbabilities.Fear > emotionProbabilities.Neutrality && emotionProbabilities.Fear > emotionProbabilities.Anger && emotionProbabilities.Fear > emotionProbabilities.Sadness && emotionProbabilities.Fear > emotionProbabilities.Happiness) {
                                     tv.setText("Fear");
+                                    sendArduino("emofer");
                                 } else if (emotionProbabilities.Sadness > emotionProbabilities.Neutrality && emotionProbabilities.Sadness > emotionProbabilities.Anger && emotionProbabilities.Sadness > emotionProbabilities.Fear && emotionProbabilities.Sadness > emotionProbabilities.Happiness) {
                                     tv.setText("Sadness");
+                                    sendArduino("emosad");
                                 } else {
                                     tv.setText("Happiness");
+                                    sendArduino("emohaa");
                                 }
 
 
