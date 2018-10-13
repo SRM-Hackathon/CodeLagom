@@ -46,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         getOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                Intent i=new Intent(MainActivity.this,Directions.class);
+                startActivity(i);
             }
         });
 
@@ -81,8 +82,9 @@ public class MainActivity extends AppCompatActivity {
                         Intent i1 = new Intent(MainActivity.this, AudioToText.class);
                         startActivity(i1);
                     }
-                    else if(result.get(0).contains("exit")){
-                        finish();
+                    else if(result.get(0).contains("Directions")){
+                        Intent i=new Intent(MainActivity.this,Directions.class);
+                        startActivity(i);
                     }
                     else {
                         Toast.makeText(this, "Invalid input", Toast.LENGTH_SHORT).show();

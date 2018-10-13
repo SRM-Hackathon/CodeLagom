@@ -20,9 +20,16 @@ void setup() {
    pinMode(led3,OUTPUT);
    pinMode(led4,OUTPUT);
    pinMode(led5,OUTPUT);
+   sl1.write(0);
+   sl2.write(0);
+   sl3.write(0);
+   sr1.write(0);
+   sr2.write(0);
+   sr3.write(100);
 }
 
 void loop() {
+
     if(Serial.available()){
         char ch=Serial.read();
         //Serial.println(ch);
@@ -76,6 +83,36 @@ void loop() {
         }else{
         digitalWrite(led5,LOW);
         sr3.write(100);
+        }
+        //get directions
+        if(data == "llllll"){
+            sl1.write(30);
+            sl2.write(20);
+            sl3.write(20);
+            delay(1000);
+            sl1.write(0);
+            sl2.write(0);
+            sl3.write(0);
+        }else if(data == "rrrrrr"){
+            sr1.write(20);
+            sr2.write(20);
+            sr3.write(160);
+            delay(1000);
+            sr1.write(0);
+            sr2.write(0);
+            sr3.write(100);
+        }else if(data == "ffffff" || data == "ssssss" ){
+            sl1.write(30);
+            sr1.write(20);
+            delay(1000);
+            sl1.write(0);
+            sr1.write(0);
+        }else if(data == "bbbbbb"){
+            sl3.write(20);
+            sr3.write(160);
+            delay(1000);
+            sl3.write(0);
+            sr3.write(100);
         }
     
     }

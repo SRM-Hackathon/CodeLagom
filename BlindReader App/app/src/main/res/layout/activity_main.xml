@@ -55,7 +55,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/speechToText"
         android:background="#60b71c1c"
-        android:text="Exit"
+        android:text="Directions"
         android:textColor="#FFFFFF"
         android:textSize="24dp"
         android:textStyle="bold" />
