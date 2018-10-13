@@ -1,6 +1,111 @@
-{% extends 'layout.html'%}
+{% extends "layout.html" %}
+{% block content %}
 
-{%block content %}
-<h1>about project goes here</h1>
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <h1 style="text-align:center"><a class="mr-2" href="#" >Blind Reader</a></h1>
+              <!--<big class="text-muted"> Project Summary</big>-->
+            </div>
+            <h2><a class="article-title" href="#"></a></h2>
+
+
+               <p>
+                <div class="slide-left">
+                <p style=" font-weight:bold">BE THE BEACON OF HOPE IN THEIR LIVES.LET US SUPPORT THEM IN EVERY STEP WE TAKE  </p>
+                </div>
+               </p>
+
+                  <ul>
+                    <div>
+                        <li style="font-size:20px"> Make all books, texts, voices and "emotions" in those voices
+                    accessible to blind as well as blind-deaf in real time braille. </li>
+                        <li>Navigate them round the clock</li>
+                    </div>
+
+                  </ul>
+              <div style= "display: block; margin-left: 100px;margin-right: auto;width: 40%">
+                  <img src="{{url_for('static',filename='b2.jpg')}}"  alt="Smiley face" height="420" width="420">
+              </div>
+
+             </p>
+              <hr>
+                <h2><a class="article-title" href="#">OUR TECHNOLOGY</a></h2>
+            <p>
+                 <ul>
+            <div>
+                <li>
+                    Wearable gadget with real time braille transmission
+                </li>
+                <li>
+                    Image to  dynamic braille via text conversion
+                </li>
+            </div>
+
+                 </ul>
+                   <ul>
+                       <div>
+                           <li>
+                               Audio to dynamic braille for deafblind assistance
+                           </li>
+                       </div>
+                   </ul>
+              <hr>
+                    Also, any pdf can be encoded into our device friendly text to be streamed to
+                    the blind person in the form of braille. The device mimics the raised and
+                    non-raised dots that the braille language uses. This makes all books accessible
+                    to blind and blind-deaf.
+                    Also we are trying to implement a tap/knock interface for people who are
+                    both blind and deaf to aid them with the interface.</p>
+                <h2><a class="article-title" href="#">Supporting Statistics:</a></h2><p>
+                    -Of the 37 million people across the globe who are blind, over 15 million are from India.
+                    -AudioBooks are the primary way of access to books that haven't been translated in braille,
+                    although they are fluent in reading braille, and gives the actual reading experience to blind.
+                    -NARUC ( National Association for Regulatory Utility Commission ) estimated two decades
+                    ago that over 70,000 to 100,000 are both deaf and blind.</p>
+              <hr>
+
+                <h2><a class="article-title" href="#">Technicalities :</a></h2><p>
+                    Fields We Cover In This Project:
+                    -IOT ( Internet of Things )
+                    -Android
+                    -Arduino
+                    -Web Development
+                    -Machine Learning
+                    Languages Used:
+                    - Java for Android
+                    - C++ for IOT
+                    - HTML, CSS, XML for front-end
+                    - Python for back-end</p>
+              <hr>
+                    <h2><a class="article-title" href="#">Other Hardware Tools :</a></h2> <p>Arduino UNO, HC-05 Bluetooth Module, SG90 MicroServo
+                    API's used are open sourced and have a GNU/GPL ( General Public License ) and
+                    Apache 2.0 License which allow free software distribution and modification.</p>
+              <hr>
+                    <h2><a class="article-title" href="https://drive.google.com/file/d/18UxLVEG8Vt8wELlmEqtPZiXg8DWCCpl4/view">References: Click for video</a></h2><p>
+                    <!--Reference(s) : <a  href=" "/>-->
+          </div>
+        </article>
+                <style style="text/css">
+                div.slide-left {
+                  width:100%;
+                  overflow:hidden;
+                }
+                div.slide-left p {
+                  animation: slide-left 10s;
+                }
+
+                @keyframes slide-left {
+                  from {
+                    margin-left: 100%;
+                    width: 300%;
+                  }
+
+                  to {
+                    margin-left: 0%;
+                    width: 100%;
+                  }
+                }
+                </style>
 
 {% endblock content %}
