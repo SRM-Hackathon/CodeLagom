@@ -1,111 +1,121 @@
-{% extends "layout.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <article class="media content-section">
-          <div class="media-body">
-            <div class="article-metadata">
-              <h1 style="text-align:center"><a class="mr-2" href="#" >Blind Reader</a></h1>
-              <!--<big class="text-muted"> Project Summary</big>-->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+    {% if title %}
+        <title>BlindReader - {{ title }}</title>
+    {% else %}
+        <title>BlindReader</title>
+    {% endif %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="/">Blind Reader</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link" href="/">Home</a>
+              <a class="nav-item nav-link" href="/upload">About</a>
             </div>
-            <h2><a class="article-title" href="#"></a></h2>
-
-
-               <p>
-                <div class="slide-left">
-                <p style=" font-weight:bold">BE THE BEACON OF HOPE IN THEIR LIVES.LET US SUPPORT THEM IN EVERY STEP WE TAKE  </p>
-                </div>
-               </p>
-
-                  <ul>
-                    <div>
-                        <li style="font-size:20px"> Make all books, texts, voices and "emotions" in those voices
-                    accessible to blind as well as blind-deaf in real time braille. </li>
-                        <li>Navigate them round the clock</li>
-                    </div>
-
-                  </ul>
-              <div style= "display: block; margin-left: 100px;margin-right: auto;width: 40%">
-                  <img src="{{url_for('static',filename='b2.jpg')}}"  alt="Smiley face" height="420" width="420">
-              </div>
-
-             </p>
-              <hr>
-                <h2><a class="article-title" href="#">OUR TECHNOLOGY</a></h2>
-            <p>
-                 <ul>
-            <div>
-                <li>
-                    Wearable gadget with real time braille transmission
-                </li>
-                <li>
-                    Image to  dynamic braille via text conversion
-                </li>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+              <a class="nav-item nav-link" href="/login">Login</a>
+              <a class="nav-item nav-link" href="/register">Register</a>
             </div>
-
-                 </ul>
-                   <ul>
-                       <div>
-                           <li>
-                               Audio to dynamic braille for deafblind assistance
-                           </li>
-                       </div>
-                   </ul>
-              <hr>
-                    Also, any pdf can be encoded into our device friendly text to be streamed to
-                    the blind person in the form of braille. The device mimics the raised and
-                    non-raised dots that the braille language uses. This makes all books accessible
-                    to blind and blind-deaf.
-                    Also we are trying to implement a tap/knock interface for people who are
-                    both blind and deaf to aid them with the interface.</p>
-                <h2><a class="article-title" href="#">Supporting Statistics:</a></h2><p>
-                    -Of the 37 million people across the globe who are blind, over 15 million are from India.
-                    -AudioBooks are the primary way of access to books that haven't been translated in braille,
-                    although they are fluent in reading braille, and gives the actual reading experience to blind.
-                    -NARUC ( National Association for Regulatory Utility Commission ) estimated two decades
-                    ago that over 70,000 to 100,000 are both deaf and blind.</p>
-              <hr>
-
-                <h2><a class="article-title" href="#">Technicalities :</a></h2><p>
-                    Fields We Cover In This Project:
-                    -IOT ( Internet of Things )
-                    -Android
-                    -Arduino
-                    -Web Development
-                    -Machine Learning
-                    Languages Used:
-                    - Java for Android
-                    - C++ for IOT
-                    - HTML, CSS, XML for front-end
-                    - Python for back-end</p>
-              <hr>
-                    <h2><a class="article-title" href="#">Other Hardware Tools :</a></h2> <p>Arduino UNO, HC-05 Bluetooth Module, SG90 MicroServo
-                    API's used are open sourced and have a GNU/GPL ( General Public License ) and
-                    Apache 2.0 License which allow free software distribution and modification.</p>
-              <hr>
-                    <h2><a class="article-title" href="https://drive.google.com/file/d/18UxLVEG8Vt8wELlmEqtPZiXg8DWCCpl4/view">References: Click for video</a></h2><p>
-                    <!--Reference(s) : <a  href=" "/>-->
           </div>
-        </article>
-                <style style="text/css">
-                div.slide-left {
-                  width:100%;
-                  overflow:hidden;
-                }
-                div.slide-left p {
-                  animation: slide-left 10s;
-                }
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% block content %}{% endblock %}
+        </div>
+        <div class="col-md-4">
+          <div class="content-section">
+            <h3>Our Sidebar</h3>
+            <p class='text-muted'>You can put any information here you'd like.
+                <video width="320" height="280" controls>
+                <source src="{{ url_for('static', filename='BlindReaderPresentation.mp4') }}" type="video/mp4">
+                </video>
 
-                @keyframes slide-left {
-                  from {
-                    margin-left: 100%;
-                    width: 300%;
-                  }
+            </p>
+              </div>
+          <div class="container">
+                 <h2>OUR GALLERY</h2>
+                 <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:30%">
+                   <!-- Indicators -->
+                   <ol class="carousel-indicators">
+                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                     <li data-target="#myCarousel" data-slide-to="1"></li>
+                     <li data-target="#myCarousel" data-slide-to="2"></li>
+                   </ol>
 
-                  to {
-                    margin-left: 0%;
-                    width: 100%;
-                  }
-                }
-                </style>
+           <!-- Wrapper for slides -->
+           <div class="carousel-inner">
+                 <div class="item active">
+                   <img src="/static/b2.jpg" alt="Los Angeles" style="width:100%;">
+                 </div>
 
-{% endblock content %}
+                 <div class="item">
+                   <img src="/static/b4.jpeg" alt="Chicago" style="width:100%;">
+                 </div>
+
+                 <!--<div class="item">-->
+                   <!--<img src="ny.jpg" alt="New york" style="width:100%;">-->
+                 <!--</div>-->
+           </div>
+
+           <!-- Left and right controls -->
+           <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+             <span class="glyphicon glyphicon-chevron-left"></span>
+             <span class="sr-only">Previous</span>
+           </a>
+           <a class="right carousel-control" href="#myCarousel" data-slide="next">
+             <span class="glyphicon glyphicon-chevron-right"></span>
+             <span class="sr-only">Next</span>
+           </a>
+         </div>
+       </div>
+
+          </div>
+
+
+
+
+
+
+          <!--<div style= "display: block; margin-left:auto;margin-right: auto;width: 40%">-->
+
+      </div>
+    </main><!--<ul class="list-group">-->
+                <!--<li class="list-group-item list-group-item-light">Latest Posts</li>-->
+                <!--<li class="list-group-item list-group-item-light">Announcements</li>-->
+                <!--<li class="list-group-item list-group-item-light">Calendars</li>-->
+                <!--<li class="list-group-item list-group-item-light">etc</li>-->
+              <!--</ul>-->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
