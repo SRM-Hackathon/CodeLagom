@@ -77,19 +77,7 @@ void loop() {
         digitalWrite(led5,LOW);
         sr3.write(100);
         }
-        if(data=="emohaa"){
-            sl1.write(30);
-            delay(1000);
-            sl1.write(0);
-        }else if(data=="emosad"){
-            sl2.write(20);
-            delay(1000);
-            sl2.write(0);
-        }else if(data=="emoang"){
-            sl3.write(20);
-            delay(1000);
-            sl3.write(0);
-        }else{}
+    
     }
 }
 delay(250); //1 second delay after each letter
