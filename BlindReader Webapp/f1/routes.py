@@ -14,6 +14,27 @@ import time
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+
+
+
+@app.route('/upload/<filename>')
+def send_pdf(filename):
+    return send_from_directory(current_user.username , filename)
+
+
+@app.route('/allfiles')
+@login_required
+def allfiles():
+    target = os.path.join(APP_ROOT, current_user.username)
+    pdf_names = os.listdir(target)
+    pdf_final=[]
+    for pdf in pdf_names:
+        if pdf.endswith('txt'):
+            pdf_final.append(pdf)
+    return render_template("allfiles.html", pdf_names=pdf_final)
+
+
+
 @app.route("/")
 @app.route("/home")
 def home():
@@ -55,6 +76,13 @@ def login():
         else:
             flash('login unsuccessful.please check again', 'danger')
     return render_template('login.html', title='Login', form=form)
+
+@app.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
+
+
 
 @app.route("/upload", methods=['GET','POST'])
 @login_required
@@ -106,4 +134,122 @@ def pdftotext():
                 out.write(content)
                 out.close()
     return redirect("allfiles")
+
+
+
+
+
+@app.route("/test" , methods=['GET', 'POST'])
+def test():
+    if request.method =='POST':
+        target1= os.path.join(APP_ROOT, current_user.username)
+        selected_pdf=request.form.get('comp_select')
+        target2 = os.path.join(target1, selected_pdf)
+        bluetooth = serial.Serial('COM8', 9600)
+
+        def brallie(ch):
+            letter = {
+                'a': "100000",
+                'A': "100000",
+                'b': "101000",
+                'B': "101000",
+                'c': "110000",
+                'C': "110000",
+                'd': "110100",
+                'D': "110100",
+                'e': "100100",
+                'E': "100100",
+                'f': "111000",
+                'F': "111000",
+                'g': "111100",
+                'G': "111100",
+                'h': "101100",
+                'H': "101100",
+                'i': "011000",
+                'I': "011000",
+                'j': "011100",
+                'J': "011100",
+                'k': "100010",
+                'K': "100010",
+                'l': "101010",
+                'L': "101010",
+                'm': "110010",
+                'M': "110010",
+                'n': "110110",
+                'N': "110110",
+                'o': "100110",
+                'O': "100110",
+                'p': "111010",
+                'P': "111010",
+                'q': "111110",
+                'Q': "111110",
+                'r': "101110",
+                'R': "101110",
+                's': "011010",
+                'S': "011010",
+                't': "011110",
+                'T': "011110",
+                'u': "100011",
+                'U': "100011",
+                'v': "101011",
+                'V': "101011",
+                'w': "011101",
+                'W': "011101",
+                'x': "110011",
+                'X': "110011",
+                'y': "110111",
+                'Y': "110111",
+                'z': "100111",
+                'Z': "100111",
+                '0': "010110",
+                '1': "100000",
+                '2': "110000",
+                '3': "100100",
+                '4': "100110",
+                '5': "100010",
+                '6': "110100",
+                '7': "110110",
+                '8': "110010",
+                '9': "010100",
+                '*': "001010",
+                ',': "010000",
+                ';': "011000",
+                ':': "010010",
+                '.': "010011",
+                '!': "011010",
+                '(': "011011",
+                ')': "011011",
+                '?': "011001",
+                '"': "001011",
+                '#': "001111",
+                '-': "001001",
+                ' ': "000000"
+            }
+            return letter.get(ch, "")
+
+        f = open(target2, 'r')
+        num = ""
+        mystr = f.read()
+        i = 0
+        while i < len(mystr):
+            j = 0
+            ch = mystr[i]
+            num = num + brallie(ch) + ','
+            print(num)
+            while j < len(num):
+                c = num[j]
+                bluetooth.write(str.encode(c))
+                print(c)
+                time.sleep(0.1)
+                j = j + 1
+            num = ""
+            i = i + 1
+            time.sleep(0.1)
+
+        f.close()
+        return (str(selected_pdf))       #to check whether it prints on website or not, delete after checking
+
+
+
+
 
