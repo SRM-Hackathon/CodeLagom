@@ -16,7 +16,7 @@
     {% else %}
         <title>BlindReader</title>
     {% endif %}
-</head>
+<head>
 <body>
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -61,18 +61,25 @@
         </div>
         <div class="col-md-4">
           <div class="content-section">
-            <h3>Our Creation</h3>
-              <p>
-              <video width="305" height="310" controls autoplay>
-                 <source src="static/BlindReaderPresentation.mp4" type="video/mp4">
-
-              </video>
+            <h3 style="text-align:center">OUR CREATION</h3>
+            <p>
+                <video width="320" height="280" controls>
+                <source src="{{ url_for('static', filename='BlindReaderPresentation.mp4') }}" type="video/mp4">
+                </video>
 
             </p>
-          </div>
-        </div>
+              </div>
+
+
+
       </div>
-    </main>
+      </div>
+    </main><!--<ul class="list-group">-->
+                <!--<li class="list-group-item list-group-item-light">Latest Posts</li>-->
+                <!--<li class="list-group-item list-group-item-light">Announcements</li>-->
+                <!--<li class="list-group-item list-group-item-light">Calendars</li>-->
+                <!--<li class="list-group-item list-group-item-light">etc</li>-->
+              <!--</ul>-->
 
 
     <!-- Optional JavaScript -->
